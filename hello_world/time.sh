@@ -33,10 +33,10 @@ compilePgms() {
   bold "# Compiling.."
 
   echo "
-        C         Rust      Dart
-  real  ${rtcc}  ${rtrc}  ${rtdc}
-  user  ${utcc}  ${utrc}  ${utdc}
-  sys   ${stcc}  ${strc}  ${stdc}
+        sys       user      real
+  C     ${stcc}  ${utcc}  ${rtcc}
+  Rust  ${strc}  ${utrc}  ${rtrc}
+  Dart  ${stdc}  ${utdc}  ${rtdc}
   "
 }
 
@@ -58,13 +58,13 @@ executePgms() {
   stde=$(echo $ttt | cut -d' ' -f8)
 
 
-  bold "${nl}# Running.."
+  bold "${nl}# Executing.."
 
   echo "
-        C         Rust      Dart
-  real  ${rtce}  ${rtre}  ${rtde}
-  user  ${utce}  ${utre}  ${utde}
-  sys   ${stce}  ${stre}  ${stde}
+        sys       user      real
+  C     ${stce}  ${utce}  ${rtce}
+  Rust  ${stre}  ${utre}  ${rtre}
+  Dart  ${stde}  ${utde}  ${rtde}
   "
 }
 
