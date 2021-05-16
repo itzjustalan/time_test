@@ -12,19 +12,19 @@ bold() {
 
 
 compilePgms() {
-  ttt=$( (time gcc ./hello.c) 2>&1)
+  ttt=$( (time gcc ./main.c) 2>&1)
   rtcc=$(echo $ttt | cut -d' ' -f2)
   utcc=$(echo $ttt | cut -d' ' -f4)
   stcc=$(echo $ttt | cut -d' ' -f6)
 
 
-  ttt=$( (time rustc ./hello.rs) 2>&1)
+  ttt=$( (time rustc ./main.rs) 2>&1)
   rtrc=$(echo $ttt | cut -d' ' -f2)
   utrc=$(echo $ttt | cut -d' ' -f4)
   strc=$(echo $ttt | cut -d' ' -f6)
 
 
-  ttt=$( (time dart compile exe hello.dart >/dev/null 2>/dev/null) 2>&1)
+  ttt=$( (time dart compile exe main.dart >/dev/null 2>/dev/null) 2>&1)
   rtdc=$(echo $ttt | cut -d' ' -f2)
   utdc=$(echo $ttt | cut -d' ' -f4)
   stdc=$(echo $ttt | cut -d' ' -f6)
@@ -47,12 +47,12 @@ executePgms() {
   utce=$(echo $ttt | cut -d' ' -f6)
   stce=$(echo $ttt | cut -d' ' -f8)
 
-  ttt=$( (time ./hello) 2>&1)
+  ttt=$( (time ./main) 2>&1)
   rtre=$(echo $ttt | cut -d' ' -f4)
   utre=$(echo $ttt | cut -d' ' -f6)
   stre=$(echo $ttt | cut -d' ' -f8)
 
-  ttt=$( (time ./hello.exe) 2>&1)
+  ttt=$( (time ./main.exe) 2>&1)
   rtde=$(echo $ttt | cut -d' ' -f4)
   utde=$(echo $ttt | cut -d' ' -f6)
   stde=$(echo $ttt | cut -d' ' -f8)
