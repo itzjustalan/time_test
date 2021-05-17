@@ -12,6 +12,9 @@ bold() {
 
 
 compilePgms() {
+
+  bold "# Compiling.."
+
   cd ./c || exit
   ttt=$( (time gcc ./main.c) 2>&1)
   rtcc=$(echo $ttt | cut -d' ' -f2)
@@ -40,9 +43,6 @@ compilePgms() {
   strc=$(echo $ttt | cut -d' ' -f6)
   cd ../ || exit
 
-
-  bold "# Compiling.."
-
   echo "
         sys       user      real
   C     ${stcc}  ${utcc}  ${rtcc}
@@ -54,6 +54,9 @@ compilePgms() {
 
 
 executePgms() {
+
+  bold "${nl}# Executing.."
+
   cd ./c || exit
   ttt=$( (time ./a.out) 2>&1)
   rtce=$(echo $ttt | cut -d' ' -f4)
@@ -81,9 +84,6 @@ executePgms() {
   utre=$(echo $ttt | cut -d' ' -f6)
   stre=$(echo $ttt | cut -d' ' -f8)
   cd ../ || exit
-
-
-  bold "${nl}# Executing.."
 
   echo "
         sys       user      real
