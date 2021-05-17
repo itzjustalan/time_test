@@ -3,9 +3,9 @@
 
 cd tests || exit
 
-for test in $(ls -d */);do
+for test in */;do
   echo "$test"
-  cd $test || exit
+  cd "$test" || exit
   ./time.sh
   cd ../
 done
