@@ -1,11 +1,11 @@
 #!/bin/sh
 
 
-cd tests
+cd tests || exit
 
 for test in $(ls -d */);do
-  echo $test
-  cd $test
+  echo "$test"
+  cd $test || exit
   ./time.sh
   cd ../
 done
